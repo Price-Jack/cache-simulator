@@ -15,12 +15,13 @@ Supports an L1 cache with an optional L2 cache and reports detailed statistics f
   - total memory traffic
 
 ## Project Structure
-.
+```text
 ├── src
 │   ├── sim_cache.java
 │   └── CacheDisplay.java
 ├── Makefile
 └── README.md
+```
 
 ## Requirements
 - Java JDK 8+ (11+ recommended)
