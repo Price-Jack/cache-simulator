@@ -1,0 +1,30 @@
+name: build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java: [ "11", "17" ]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: ${{ matrix.java }}
+
+      - name: Build
+        run: make
+
+      - name: Smoke test (mini trace)
+        run: |
+          ./sim_cache 32 1024 1 0 0 0 0 traces/mini.trace > /dev/null
+
+      - name: Clean
+        run: make clean
