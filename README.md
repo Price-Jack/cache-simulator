@@ -1,14 +1,14 @@
 ````md
 # Cache & Memory Hierarchy Simulator (Java)
 
-A configurable cache simulator for exploring how cache parameters impact performance.
+A configurable cache simulator for exploring how cache parameters impact performance.  
 Supports an L1 cache with an optional L2 cache and reports detailed statistics from memory-access traces.
 
 ## Features
 - Configurable block size, cache size, and associativity (L1 and optional L2)
-- Replacement policies: LRU, FIFO, Optimal
-- Write policy: write-back + write-allocate
-- Cache hierarchy behavior: non-inclusive and inclusive
+- Replacement policies: **LRU**, **FIFO**, **Optimal**
+- Write policy: **write-back + write-allocate**
+- Cache hierarchy behavior: **non-inclusive** and **inclusive**
 - Prints cache contents and key performance stats:
   - reads/writes, read/write misses
   - miss rates
@@ -27,7 +27,7 @@ Supports an L1 cache with an optional L2 cache and reports detailed statistics f
 ## Requirements
 
 * Java JDK 8+ (11+ recommended)
-* make (optional, but recommended)
+* `make` (optional, but recommended)
 
 Check your Java version:
 
@@ -37,7 +37,7 @@ java -version
 
 ## Build
 
-Compile and generate the ./sim_cache launcher:
+Compile and generate the `./sim_cache` launcher:
 
 ```bash
 make
@@ -51,29 +51,36 @@ make clean
 
 ## Run
 
-The simulator expects exactly 8 command-line arguments:
+The simulator expects exactly **8** command-line arguments:
 
 ```bash
 ./sim_cache <BLOCKSIZE> <L1_SIZE> <L1_ASSOC> <L2_SIZE> <L2_ASSOC> <REPLACEMENT_POLICY> <INCLUSION_PROPERTY> <trace_file>
 ```
 
+### Quickstart demo (included mini trace)
+
+```bash
+make
+./sim_cache 32 1024 1 0 0 0 0 traces/mini.trace
+```
+
 ### Argument Details
 
-* BLOCKSIZE: block size in bytes
-* L1_SIZE: L1 cache size in bytes
-* L1_ASSOC: L1 associativity
-* L2_SIZE: L2 cache size in bytes (0 means “no L2”)
-* L2_ASSOC: L2 associativity
-* REPLACEMENT_POLICY:
+* `BLOCKSIZE`: block size in bytes
+* `L1_SIZE`: L1 cache size in bytes
+* `L1_ASSOC`: L1 associativity
+* `L2_SIZE`: L2 cache size in bytes (`0` means “no L2”)
+* `L2_ASSOC`: L2 associativity
+* `REPLACEMENT_POLICY`:
 
-  * 0 = LRU
-  * 1 = FIFO
-  * 2 = Optimal
-* INCLUSION_PROPERTY:
+  * `0` = LRU
+  * `1` = FIFO
+  * `2` = Optimal
+* `INCLUSION_PROPERTY`:
 
-  * 0 = non-inclusive
-  * 1 = inclusive
-* trace_file: memory access trace file
+  * `0` = non-inclusive
+  * `1` = inclusive
+* `trace_file`: memory access trace file
 
 ### Example
 
@@ -112,7 +119,7 @@ The program prints:
 ## Notes for a Public Repo
 
 * Don’t commit trace files if they’re large or not redistributable.
-* .gitignore should exclude Java build artifacts like *.class.
+* `.gitignore` should exclude Java build artifacts like `*.class`.
 
 ## Ideas for Future Improvements
 
