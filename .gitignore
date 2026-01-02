@@ -1,0 +1,29 @@
+# Java build artifacts
+*.class
+*.jar
+*.war
+*.ear
+
+# JVM / tooling logs
+hs_err_pid*
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs / editors
+.vscode/
+.idea/
+*.iml
+*.code-workspace
+
+# Eclipse (common in school repos)
+.classpath
+.project
+.settings/
+
+# Build/output folders (if you add any later)
+out/
+bin/
+build/
